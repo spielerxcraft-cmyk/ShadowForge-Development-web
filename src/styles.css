@@ -1,0 +1,117 @@
+@import "tailwindcss" source("../");
+
+@font-face {
+  font-family: 'Pixelated';
+  src: url('data:font/woff2;base64,d09GMgABAAAAAAQQAA0AAAAAB7wAAAO7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7////AP7//v8Af4D9AAAAwAIACAAKAAEA') format('woff2');
+}
+
+body {
+  @apply m-0 bg-gradient-to-b from-gray-950 via-green-950 to-gray-950 text-gray-100;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", monospace;
+  -webkit-font-smoothing: antialiased;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.pixelated {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Minecraft-style blocky design */
+button {
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+input, textarea {
+  font-family: 'Courier New', monospace;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(3, 7, 18);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(34, 197, 94);
+  border: 1px solid rgb(3, 7, 18);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(22, 163, 74);
+}
+
+/* Minecraft-style animations */
+@keyframes minecraft-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes minecraft-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-minecraft-pulse {
+  animation: minecraft-pulse 1.5s ease-in-out infinite;
+}
+
+.animate-minecraft-float {
+  animation: minecraft-float 3s ease-in-out infinite;
+}
+
+/* Grid background effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(34, 197, 94, 0.02) 2px,
+      rgba(34, 197, 94, 0.02) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(34, 197, 94, 0.02) 2px,
+      rgba(34, 197, 94, 0.02) 4px
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .pixelated {
+    font-size: 13px;
+  }
+  
+  button {
+    min-height: 44px;
+  }
+}
